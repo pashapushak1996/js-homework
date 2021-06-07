@@ -216,6 +216,7 @@ const users = [{
 // console.log(keys);
 // console.log(values);
 
+
 // - Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
 //   EXAMPLE:
 //   foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
@@ -231,48 +232,59 @@ const users = [{
 // let replaceElement1 = replaceElement([9, 8, 0, 4], 1);
 // console.log(replaceElement1);
 
-//
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
 // Двожина масиву від 2 до 100
 // EXAMPLE:
 // [1,0,6,0,3] => [1,6,3,0,0]
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
-// function zeroPush(array) {
-//     const cleanArr = [];
+// function f(array) {
 //     for (let i = 0; i < array.length; i++) {
-//         if (array[i] !== 0) {
-//             cleanArr.push(array[i]);
+//         const num = array[i];
+//         if (num === 0) {
+//             let numbers = array.slice(i, i + 1);
+//             array.splice(i, 1);
+//             array.push(...numbers);
 //         }
 //     }
-//     for (const element of array) {
-//         if (element === 0) {
-//             cleanArr.push(element)
-//         }
-//     }
-//     return cleanArr;
+//     return array;
 // }
-//
-// let push = zeroPush([0,1, 0, 0, 0, 0, 6, 0, 3]);
-// console.log(push);
+
+// function zeroPush(array) {
+// //     const cleanArr = [];
+// //     for (let i = 0; i < array.length; i++) {
+// //         if (array[i] !== 0) {
+// //             cleanArr.push(array[i]);
+// //         }
+// //     }
+// //     for (const element of array) {
+// //         if (element === 0) {
+// //             cleanArr.push(element)
+// //         }
+// //     }
+// //     return cleanArr;
+// // }
+// //
+// // let push = zeroPush([0,1, 0, 0, 0, 0, 6, 0, 3]);
+// // console.log(push);
 
 
-// - Дано список імен.
-// let n1 = '    Harry       Potter      '
-// let n2 = '    Ron       Whisley      '
-// let n3 = '    Hermione           Granger      '
+// - Дано список імен
+let n1 = '    Harry        Potter      '
+let n2 = '    Ron           Whisley      '
+let n3 = '    Hermione       Granger      '
 
 // Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
-// function nameNormalize(string) {
-//     return string.trim().split('').join('').replaceAll('  ', '');
+// function normalizeName(str) {
+//     str = str.trim()
+//     while (str.includes('  ')) {
+//         console.log(str);
+//         str = str.replace('  ', ' ')
+//     }
+//     return str;
 // }
 //
-// let nameNormalize1 = nameNormalize(n1);
-// let nameNormalize2 = nameNormalize(n2);
-// let nameNormalize3 = nameNormalize(n3);
-// console.log(nameNormalize1);
-// console.log(nameNormalize2);
-// console.log(nameNormalize3);
-// let n1 = 'Harry Potter'
-// let n2 = 'Ron Whisley'
-// let n3 = 'Hermione Granger'
+
+
+
+
