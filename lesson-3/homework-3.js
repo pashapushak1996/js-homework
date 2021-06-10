@@ -47,10 +47,10 @@
 //     console.log(c);
 // }
 // min(1500, 2001, 10000)
-
+//
 // 5) створити функцію яка повертає найбільше число з масиву
 // function arrayMax(array) {
-//     let max = 0;
+//     let max = array[0];
 //     for (let i = 0; i < array.length; i++) {
 //         const arrayElement = array[i];
 //         if (arrayElement > max) {
@@ -59,7 +59,9 @@
 //     }
 //     return max;
 // }
-// let max = arrayMax([2, 3, 4, 5, 6, 8, 0, 102, 23, 14431, 2312]);
+//
+// let max = arrayMax([-4, 2, 3, 4, 5, -6, 6, 8, 0, 102, 23, 14431, 2312]);
+// console.log(max);
 
 
 // 6) створити функцію яка повертає найменьше число з масиву
@@ -183,38 +185,37 @@ const users = [{
 // }
 // let minMax1 = minMax(2,34,5,3,2,4,5,5,1,223,43);
 // console.log(minMax1);
-
+//
 // - Взяти задачі з завдання 10 та 9 та обєднати їх в одну динамічну функцію.
 //     Що б я міг сам вибрати повернути мені масив ключів чи масив значень.
-// function objectReturn(array, toggle) {
-//     let objArr = [];
-//     if (toggle === 'keys') {
-//         for (let i = 0; i < array.length; i++) {
-//             const obj = array[i];
-//             let keys = Object.keys(obj);
-//             for (let j = 0; j < keys.length; j++) {
-//                 const key = keys[j];
-//                 objArr.push(key);
-//             }
-//         }
-//         return objArr;
-//     }
-//     if (toggle === 'values') {
-//         for (let i = 0; i < array.length; i++) {
-//             const obj = array[i];
-//             let values = Object.values(obj);
-//             for (let j = 0; j < values.length; j++) {
-//                 const value = values[j];
-//                 objArr.push(value);
-//             }
-//         }
-//         return objArr;
-//     }
-// }
-// let keys = objectReturn(users, 'keys');
-// let values = objectReturn(users, 'values');
-// console.log(keys);
-// console.log(values);
+function objectReturn(array, toggle) {
+    let objArr = [];
+    if (toggle === 'keys') {
+        for (let i = 0; i < array.length; i++) {
+            const obj = array[i];
+            for (const objKey in obj) {
+                objArr.push(objKey);
+            }
+        }
+        return objArr;
+    }
+    if (toggle === 'values') {
+        for (let i = 0; i < array.length; i++) {
+            const obj = array[i];
+            let values = Object.values(obj);
+            for (let j = 0; j < values.length; j++) {
+                const value = values[j];
+                objArr.push(value);
+            }
+        }
+        return objArr;
+    }
+}
+
+let keys = objectReturn(users, 'keys');
+let values = objectReturn(users, 'values');
+console.log(keys);
+console.log(values);
 
 
 // - Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
@@ -222,15 +223,24 @@ const users = [{
 //   foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
 //   foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
 //   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
-// function replaceElement(array, i) {
+
+const arr = [9, 8, 0, 4];
+
+// function replace(array, i) {
+//     let copyArray = [...array];
+//     copyArray[i] = copyArray.splice(i + 1, 1, copyArray[i])[0];
+//     return copyArray;
+// }
+
+// function replaceIndex(array, i) {
 //     let temp = array[i];
 //     array[i] = array[i + 1];
 //     array[i + 1] = temp;
-//     return array;
+//     return array
 // }
 //
-// let replaceElement1 = replaceElement([9, 8, 0, 4], 1);
-// console.log(replaceElement1);
+// let replace1 = replaceIndex(arr, 2);
+// console.log(replace1);
 
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
 // Двожина масиву від 2 до 100
@@ -270,9 +280,9 @@ const users = [{
 
 
 // - Дано список імен
-let n1 = '    Harry        Potter      '
-let n2 = '    Ron           Whisley      '
-let n3 = '    Hermione       Granger      '
+let n1 = '    Harry        Potter      ';
+let n2 = '    Ron           Whisley      ';
+let n3 = '    Hermione       Granger      ';
 
 // Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
 // function normalizeName(str) {
@@ -284,6 +294,23 @@ let n3 = '    Hermione       Granger      '
 //     return str;
 // }
 //
+// let h1 = "    Hermiona      Gringer                       Ivaneyko      ";
+//
+// function spaceDelete(str) {
+//     let split = str.trim().split(" ");
+//     const stringArray = [];
+//     for (let i = 0; i < split.length; i++) {
+//         const splitElement = split[i];
+//         if (splitElement) {
+//             stringArray.push(splitElement);
+//         }
+//     }
+//     let s = stringArray.join(' ');
+//     console.log(s);
+// }
+//
+// console.log(spaceDelete(h1));
+
 
 
 
