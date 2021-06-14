@@ -75,10 +75,19 @@ const itemName = myForm.itemName;
 const qty = myForm.qty;
 const price = myForm.price;
 const photo = myForm.photo;
-const articlesArray = [];
-
-myForm.onsubmit = (ev) => {
+let articlesArray = [];
+const articleLocalStorage = JSON.parse(localStorage.getItem('article-array'));
+console.log(articleLocalStorage);
+myForm.sendButton.onclick = (ev) => {
     ev.preventDefault();
+    if (articlesArray.length === 0) {
+        articlesArray = articleLocalStorage;
+        if (!articleLocalStorage) {
+            articlesArray = [];
+        }
+    }
+    debugger;
+
     const article = {
         'id': id.value,
         'articleName': itemName.value,
@@ -89,7 +98,6 @@ myForm.onsubmit = (ev) => {
     if (!itemName.value) {
         return;
     }
-
     articlesArray.push(article);
     let jsonArticles = JSON.stringify(articlesArray);
     localStorage.setItem('article-array', jsonArticles);

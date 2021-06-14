@@ -33,4 +33,9 @@ articles.forEach((el) => {
     item.appendChild(articlePhoto);
     item.appendChild(articleButton);
     document.body.appendChild(item);
-})
+});
+
+let clearButton = document.querySelector('.clear');
+clearButton.onclick = () => {
+    localStorage.clear();
+}

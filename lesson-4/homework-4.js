@@ -191,22 +191,77 @@
 // bmw.info();
 
 
-let users = [
-    {name: "Yura", age: 18},
-    {name: "Ostap", age: 35},
-    {name: "Artem", age: 12},
-    {name: "Yosup", age: 36},
-    {name: "Ivan", age: 9}];
+// let users = [
+//     {name: "Yura", age: 18},
+//     {name: "Ostap", age: 35},
+//     {name: "Artem", age: 12},
+//     {name: "Yosup", age: 36},
+//     {name: "Ivan", age: 9}];
 
 
-const array = [2, 3, 88, 123, 45, 21, 2345, -20];
-let number = array.reduce((acc, curr) => {
-    if (curr > acc) {
-        acc = curr;
+// const array = [2, 3, 88, 123, 45, 21, 2345, -20];
+// let number = array.reduce((acc, curr) => {
+//     if (curr > acc) {
+//         acc = curr;
+//     }
+//     return acc;
+// });
+
+// 1 створити функцію конструктор для об'єктів User з полями id, name, surname , email, phone
+// створити пустий масив, наповнити його 10 об'єктами User
+// 2 створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле є масивом зі списком товарів)
+// створити пустий масив, наповнити його 10 об'єктами Client
+
+function User(id, name, surname, email, phone) {
+    this.id = id;
+    this.name = name;
+    this.surname = surname;
+    this.email = email;
+    this.phone = phone;
+}
+
+const user1 = new User(1, `Ivan`, `Pushak`, `pashklp@gmail.com`, `380982724493`);
+const user2 = new User(2, `John`, `Seleznoiv`, `john@gmail.com`, `380982231141`);
+const user3 = new User(3, `Max`, `Yuras`, `yurii@gmail.com`, `380573321123`);
+const user4 = new User(4, `Yura`, `Hedler`, `alenwar@gmail.com`, `380983445323`);
+const user5 = new User(5, `Stepan`, `ivaneyko`, `johndick@gmail.com`, `380982567676`);
+const user6 = new User(6, `Alyosa`, `Rustaniv`, `astampoo@gmail.com`, `380945647445`);
+const user7 = new User(7, `Ira`, `Alexaniv`, `lacoste@gmail.com`, `380982745757`);
+const user8 = new User(8, `Andrii`, `Olegisha`, `users@gmail.com`, `380982456474`);
+const users = [user1, user2, user3, user4, user5, user6, user7, user8];
+
+class Client {
+    constructor(id, name, surname, phone, order) {
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.order = order;
     }
-    return acc;
+}
+
+const client1 = new Client(1, `Ivan`, `Pushak`, `pashklp@gmail.com`, `35`);
+const client2 = new Client(2, `John`, `Seleznoiv`, `john@gmail.com`, `32`);
+const client3 = new Client(3, `Max`, `Yuras`, `yurii@gmail.com`, `64`);
+const client4 = new Client(4, `Yura`, `Hedler`, `alenwar@gmail.com`, `25`);
+const client5 = new Client(5, `Stepan`, `ivaneyko`, `johndick@gmail.com`, `63`);
+const client6 = new Client(6, `Alyosa`, `Rustaniv`, `astampoo@gmail.com`, `146`);
+const client7 = new Client(7, `Ira`, `Alexaniv`, `lacoste@gmail.com`, `346`);
+const client8 = new Client(8, `Andrii`, `Olegisha`, `users@gmail.com`, `432`);
+const clients = [client1, client2, client3, client4, client5, client6, client7, client8];
+
+//
+// 5 Взяти масив з завдання 1.
+// - Відфільтрувати , залишивши тільки об'єкти з парними id
+// - Відсортувати його по id. по зростанню
+// - Відсортувати його по id. по спаданню
+
+const usersWithEvenId = users.filter(item => {
+    if (!(item.id % 2)) {
+        return item;
+    }
 });
+console.log(usersWithEvenId);
 
-
-
+// 6. Взяти масив з завдання 2.
+// Відсортувати його по кількості товарів в полі order. по спаданню
 
