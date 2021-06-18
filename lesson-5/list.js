@@ -8,6 +8,7 @@ const remove = (id) => {
     });
     articles.splice(index, 1);
     localStorage.setItem('article-array', JSON.stringify(articles));
+    location.reload();
 }
 
 articles.forEach((el) => {
@@ -38,4 +39,6 @@ articles.forEach((el) => {
 let clearButton = document.querySelector('.clear');
 clearButton.onclick = () => {
     localStorage.clear();
+    let htmlHeadingElement = document.createElement(`h1`);
+    htmlHeadingElement.innerText = `Local storage is empty`;
 }

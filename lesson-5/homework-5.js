@@ -69,6 +69,7 @@
 
 
 // 2. Створити форму з інпутом для введення ім'я, та action="index2.html".
+
 let myForm = document.forms.myForm;
 const id = myForm.id;
 const itemName = myForm.itemName;
@@ -86,7 +87,6 @@ myForm.sendButton.onclick = (ev) => {
             articlesArray = [];
         }
     }
-    debugger;
 
     const article = {
         'id': id.value,
