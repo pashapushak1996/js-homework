@@ -79,6 +79,7 @@ const numbers = [-256, 1, 2, 3, 5, 6, 7, -2555, 78, 8, 665, -57];
 //     .split('')
 //     .map(el => +el);
 // 2176491947586100 -> 3
+
 // function f(array, findEl) {
 //     let fqs = 0;
 //     for (let i = 0; i < array.length; i++) {
@@ -96,6 +97,7 @@ const numbers = [-256, 1, 2, 3, 5, 6, 7, -2555, 78, 8, 665, -57];
 
 
 // Cоздать функцию которая принимает число и возвращает  текст как в примере:
+
 //     3275  —>  "3000 + 200 + 70 +5";
 // function text(num) {
 //     let array = [];
@@ -122,20 +124,30 @@ const numbers = [-256, 1, 2, 3, 5, 6, 7, -2555, 78, 8, 665, -57];
 //
 // Дан массив целых чисел, найдите тот, который встречается нечетное количество раз.Всегда будет только одно целое число, которое встречается нечетное количество раз
 //     [1,2,3,4,5,2,4,1,3] -> 5
-// const arrays = [1, 2, 3, 4, 5, 2, 4, 1, 3];
-//
-// function sss(array) {
-//     array.sort((a, b) => a - b
-//     ).forEach((el, index) => {
-//         if (el === array[index + 1]) {
-//             array.splice(index, 2);
-//         }
-//     })
-//     return array
-// }
-//
-// let sss1 = sss(arrays);
-// console.log(sss1);
+
+
+
+const arr = [1, 2, 10, 3, 4, 2, 4, 1, 3];
+
+function findOdd(arr = []) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+
+        // console.log(arr[i]);
+        for (let j = 0; j < arr.length; j++) {
+            // console.log(arr[j]);
+            if (arr[i] === arr[j]) {
+                count++;
+            }
+        }
+        if (count % 2 !== 0) {
+            console.log(count);
+            return arr[i];
+        }
+    }
+}
+
+let even = findOdd(arr);
 
 
 // Знайти анаграму.
@@ -206,45 +218,61 @@ const numbers = [-256, 1, 2, 3, 5, 6, 7, -2555, 78, 8, 665, -57];
 // Дано натуральное число N. Вычислите сумму его цифр.
 //     При решении этой задачи нельзя использовать строки,
 //     списки, массивы ну и циклы, разумеется.
-// let sum = 0;
-// function summator2000(num, iterationIndex) {
-//     let strings1 = num.toString().split('');
-//     if (iterationIndex >= strings1.length) {
-//         return;
-//     }
-//     sum += +strings1[iterationIndex];
-//     summator2000(num, ++iterationIndex);
-// }
-//
-// summator2000(1111, 0);
-//
-// console.log(sum);
+let sum = 0;
 
 
-function findIndex(arr = [], element = '') {
-    let minIndx = 0;
-    let maxIndx = 0;
-    let newArr = [];
-
-
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === element) {
-            newArr.push(i);
-        }
-    }
-    console.log(newArr);
-
-    if(newArr.length > 0){
-        console.log(`MinIndex: ${newArr[0]}`);
-        console.log(`MaxIndex: ${newArr[newArr.length - 1]}`);
-    }else{
-        console.log(-1);
-    }
+function summator2000(num) {
+    return num ? Math.floor(num % 10) + summator2000(num / 10) : 0;
 }
 
 
-let numArr = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 10];
-findIndex(numArr, 7);
+let number1 = summator2000(11);
 
 
+console.log(number1);
 
+
+// function findIndex(arr = [], element = '') {
+//     let minIndx = 0;
+//     let maxIndx = 0;
+//     let newArr = [];
+//
+//
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === element) {
+//             newArr.push(i);
+//         }
+//     }
+//     console.log(newArr);
+//
+//     if (newArr.length > 0) {
+//         console.log(`MinIndex: ${ newArr[0] }`);
+//         console.log(`MaxIndex: ${ newArr[newArr.length - 1] }`);
+//     } else {
+//         console.log(-1);
+//     }
+// }
+//
+//
+// let numArr = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 10];
+// findIndex(numArr, 7);
+
+
+// Знайти анаграму.
+//     Перевірити чи слово має в собі такі самі літери як і поеперднє слово.
+//
+//     ANAGRAM | MGANRAA -> true
+// EXIT | AXET -> false
+// GOOD | DOGO -> true
+
+function comparator(strOne, strTwo) {
+    if (strOne.length !== strTwo.length) {
+        return "NO";
+    }
+    if (strOne.toLowerCase().split('').sort().join() === strTwo.toLowerCase().split('').sort().join()) {
+        return "YES"
+    }
+}
+
+let s = comparator(`ANAGRAM`, `MGANRAA`);
+console.log(s);
